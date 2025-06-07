@@ -1,32 +1,3 @@
-##from pymongo import MongoClient
-##
-##connection = MongoClient("mongodb://localhost:27017/")
-##print("Connection established Successfully...")
-##
-##db = connection["Office"]
-##print("Database created")
-##
-##collection = db["Employees"]
-##print("Collection created")
-##
-### collection.insert_one({"_id": 3, "Name":"Dharshini", "Age": 19})
-### print("data inserted")
-##
-### collection.insert_many( [
-###     {"name": "Bob", "age": 32},
-###     {"name": "Charlie", "age": 24}
-### ])
-##
-### print(collection.find_one({"name": "Charlie"}))
-##
-### for doc in  collection.find():
-###     print(doc)
-##
-### collection.update_many({"name":"Charlie"},{"$set":{"name":"Bob"}})
-##
-### collection.delete_many({"name":"Bob"})
-
-
 from pymongo import MongoClient
 connection=MongoClient("mongodb://localhost:27017/")
 db=connection["namelist"]
@@ -43,5 +14,39 @@ collection=db["names"]
 ##collection.delete_many({"name":"ashwin"})
 ##collection.replace_one({"name": "yathra"}, {"name": "jp"})
 ##print(collection.count_documents({"age":{"$gt":19}})
-print(collection.distinct("name"))
-print("db created ")
+##print(collection.distinct("name"))
+##print("db created ")
+##📌 Query Operators
+##Operator	Description	Example
+##$eq	Equal to	{"age": {"$eq": 25}}
+##$ne	Not equal to	{"name": {"$ne": "John"}}
+##$gt	Greater than	{"age": {"$gt": 25}}
+##$gte	Greater than or equal to	{"age": {"$gte": 25}}
+##$lt	Less than	{"age": {"$lt": 25}}
+##$lte	Less than or equal to	{"age": {"$lte": 25}}
+##$in	Value is in list	{"name": {"$in": ["Alice", "Bob"]}}
+##$nin	Value not in list	{"status": {"$nin": ["inactive", "banned"]}}
+##$exists	Field exists or not	{"email": {"$exists": True}}
+##$type	Match specific BSON type	{"score": {"$type": "double"}}
+##$and	Logical AND	{"$and": [{"age": {"$gt": 20}}, {"active": True}]}
+##$or	Logical OR	{"$or": [{"age": 30}, {"city": "Delhi"}]}
+##$not	Logical NOT	{"age": {"$not": {"$gt": 25}}}
+##$nor	Neither condition is true	{"$nor": [{"age": 30}, {"name": "Alice"}]}
+##$all	All elements must match	{"tags": {"$all": ["mongodb", "python"]}}
+##$size	Array has specific length	{"tags": {"$size": 3}}
+##
+##🔧 Update Operators
+##Operator	Description	Example
+##$set	Set field value	{"$set": {"name": "Ashwin"}}
+##$unset	Remove field	{"$unset": {"age": ""}}
+##$inc	Increment field	{"$inc": {"views": 1}}
+##$mul	Multiply field	{"$mul": {"price": 1.1}}
+##$rename	Rename field	{"$rename": {"username": "user_name"}}
+##$push	Add item to array	{"$push": {"tags": "python"}}
+##$pull	Remove item from array	{"$pull": {"tags": "old_tag"}}
+##$addToSet	Add to array if not present	{"$addToSet": {"tags": "unique_tag"}}
+##$pop	Remove first/last array element	{"$pop": {"tags": 1}}
+##$min	Set to min value if lower	{"$min": {"score": 50}}
+##$max	Set to max value if higher	{"$max": {"score": 90}}
+##$currentDate	Set field to current date	{"$currentDate": {"lastModified": True}}
+##
