@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-
+    
 connection = MongoClient("mongodb://localhost:27017/")
 db = connection["mini_task"]
 collection = db["age_calculator"]  

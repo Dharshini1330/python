@@ -1,44 +1,91 @@
-##single inheritance
-class parent:
+class Parent:
     def code(self):
         print("good coder")
-class child(parent):
+
+class Child(Parent):
     def develop(self):
         print("good developer")
-c=child()
+
+c = Child()
 c.develop()
 c.code()
 print(".....................")
-##multiple inheritance
 
-class parent1:
+class Parent1:
     def code(self):
         print("good coder")
-class parent2:
+
+class Parent2:
     def chef(self):
         print("good chef")
 
-class child(parent1,parent2):
+class Child(Parent1, Parent2):
     def develop(self):
         print("good developer")
-multi=child()
+
+multi = Child()
 multi.develop()
 multi.code()
 multi.chef()
 print(".....................")
-##multilevel inheritance
-class grandparent:
+
+class Grandparent:
     def code(self):
         print("good coder")
-class parent(grandparent):
+
+class Parent(Grandparent):
     def chef(self):
         print("good chef")
-class child(parent1):
+
+class Child(Parent):
     def develop(self):
         print("good developer")
-m=child()
+
+m = Child()
 m.develop()
 m.code()
 m.chef()
+print(".....................")
 
+class Parent:
+    def house(self):
+        print("has an apartment")
 
+class Child1(Parent):
+    def chef(self):
+        print("good chef")
+
+class Child2(Parent):
+    def develop(self):
+        print("good developer")
+
+h1 = Child2()
+h1.develop()
+h1.house()
+
+h2 = Child1()
+h2.chef()
+h2.house()
+print(".....................")
+
+class Grandparent:
+    def home(self):
+        print("has an apartment")
+
+class Parent1(Grandparent):
+    def doctor(self):
+        print("was a doctor")
+
+class Parent2(Grandparent):
+    def professor(self):
+        print("was a professor")
+
+class Child(Parent1, Parent2):
+    def develop(self):
+        print("good developer")        
+
+h = Child()
+h.develop()
+h.professor()
+h.doctor()
+h.home()
